@@ -1,8 +1,9 @@
 var fs = require('fs')
 
-fs.readFile('./readme.txt','utf8',function(err,data){
-   fs.writeFile('./writeme.txt',data)
+
+fs.unlink('./stuff/writeme.txt',function(){
+    fs.rmdir('stuff')
 })
 
 
-console.log('efsefs')
+//fs.readFile(read params)/Sync, writefile/Sync
