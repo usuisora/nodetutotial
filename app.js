@@ -1,9 +1,13 @@
-var fs = require('fs')
+var http = require('http')
+
+var server = http.createServer(function(req,res){
+
+    console.log('rqeust was made from  '+ req.url)
+    res.writeHead(200,{'Content-Type': 'text/plain'})
+    res.end('sssl');
+});
 
 
-fs.unlink('./stuff/writeme.txt',function(){
-    fs.rmdir('stuff')
-})
+server.listen(3000,'127.0.0.1')
 
-
-//fs.readFile(read params)/Sync, writefile/Sync
+console.log('server runs')
