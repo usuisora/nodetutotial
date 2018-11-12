@@ -7,15 +7,28 @@ var fs = require('fs')
 //myReadStream.pipe(myWriteStream)
 
 var server = http.createServer(function(req,res){
-    res.writeHead(200,{'Content-Type': 'application/json'});
-    var myObj = {
-        name: 'Rye',
-        job: 'Samurai',
-        age: 20
+ 
+
+    if(req.url =='/home' || req.url =='/'){
+        res.writeHead(200, {'Content-Type': 'text/html'})
+        fs.createReadStream(__dirname + '/index.html').pipe(res)
 
     }
-
-    res.end(JSON.stringify(myObj))
+    else if (req.url ==='/contact'){
+        res.writeHead(200, {'Content-Type': 'text/html'})
+        fs.createReadStream(__dirname + '/contact.html').pipe(res)
+    }
+   else if(req.url ==='/api/ninjas'){
+       res.writeHead(200, {'Contact-Type': 'application/json'})
+       var myObjs= [
+           {name: 'Johny' , age : 23},
+            {name : 'Callu', age: 25}
+    ]
+       res.end(JSON.stringify(myObjs))
+   }else{
+    res.writeHead(404, {'Content-Type': 'text/html'})
+    fs.createReadStream(__dirname + '/404.html').pipe(res)
+   }
 })
 
 server.listen(3000,'127.0.0.1')
