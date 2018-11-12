@@ -1,0 +1,26 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "please leave me alone!!!!!!!!!!!!!!!!!!!!please leave me alone!!!!!!!!!!!!!!!!!!!!please leave me alone!!!!!!!!!!!!!!!!!!!!please leave me alone!!!!!!!!!!!!!!!!!!!!please leave me alone!!!!!!!!!!!!!!!!!!!!please leave me alone!!!!!!!!!!!!!!!!!!!!please leave me alone!!!!!!!!!!!!!!!!!!!!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usuisora/nodetutotial.git"
+  },
+  "keywords": [
+    "fun",
+    "ivan"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/usuisora/nodetutotial/issues"
+  },
+  "homepage": "https://github.com/usuisora/nodetutotial#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

@@ -1,36 +1,15 @@
-var http = require('http')
-var fs = require('fs')
- //import fs from "fs"
+var express = require('express')
 
-//var myWriteStream = fs.createWriteStream(__dirname + "/writeme.txt")
+var app = express();
 
-//myReadStream.pipe(myWriteStream)
+app.get('/', (req, res) => {
+    res.send('This is a main page.')
+});
 
-var server = http.createServer(function(req,res){
- 
+app.get('/contact', (req, res) => {
+    res.send('This is the contact page.');
+});
 
-    if(req.url =='/home' || req.url =='/'){
-        res.writeHead(200, {'Content-Type': 'text/html'})
-        fs.createReadStream(__dirname + '/index.html').pipe(res)
-
-    }
-    else if (req.url ==='/contact'){
-        res.writeHead(200, {'Content-Type': 'text/html'})
-        fs.createReadStream(__dirname + '/contact.html').pipe(res)
-    }
-   else if(req.url ==='/api/ninjas'){
-       res.writeHead(200, {'Contact-Type': 'application/json'})
-       var myObjs= [
-           {name: 'Johny' , age : 23},
-            {name : 'Callu', age: 25}
-    ]
-       res.end(JSON.stringify(myObjs))
-   }else{
-    res.writeHead(404, {'Content-Type': 'text/html'})
-    fs.createReadStream(__dirname + '/404.html').pipe(res)
-   }
-})
-
-server.listen(3000,'127.0.0.1')
-
-console.log('server runs')
+app.listen(3000, () => {
+    console.log('App listening on port 3000!');
+});
